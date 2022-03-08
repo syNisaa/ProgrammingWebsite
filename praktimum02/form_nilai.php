@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <form action="form_nilai.php" method="GET">
+        <form action="form_nilai.php" method="POST">
             <div class="form-group row">
                 <label for="Nama " class="col-4 col-form-label">Nama Lengkap</label>
                 <div class="col-8">
@@ -75,12 +75,33 @@
 
         <?php
 
-        $nama = @$_GET['Nama'];
-        $matkul = @$_GET['matkul'];
-        $uts = @$_GET['uts'];
-        $uas = @$_GET['uas'];
-        $tugas = @$_GET['tugas'];
+        $nama = @$_POST['Nama'];
+        $matkul = @$_POST['matkul'];
+        $uts = @$_POST['uts'];
+        $uas = @$_POST['uas'];
+        $tugas = @$_POST['tugas'];
 
+        $puts = $uts * 30 / 100;
+        $puas = $uas * 35 / 100;
+        $ptugas = $tugas * 35 / 100;
+
+        $presentase = $puts + $puas +$ptugas;
+
+        if($presentase <= 35){
+            $presentase = "E";
+        }elseif($presentase <= 55){
+            $presentase = "D";
+        }elseif($presentase <= 69){
+            $presentase = "C";
+        }elseif($presentase <= 84){
+            $presentase = "B";
+        }elseif($presentase <= 100){
+            $presentase = "A";
+        }else{
+            $presentase = "I";
+        }
+    
+        $lulus = $puts + $puas +$ptugas;
 
         ?>
 
@@ -93,6 +114,8 @@
                     <th scope="col">Nilai UAS</th>
                     <th scope="col">Nilai UTS</th>
                     <th scope="col">Nilai Tugas</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,6 +126,18 @@
                     <td><?php echo $uas ?></td>
                     <td><?php echo $uts ?></td>
                     <td><?php echo $tugas ?></td>
+                    <td><?php echo $presentase ?></td>
+                    <td>
+                        <?php 
+                            if ($lulus >= 55){
+                                echo '.<button class="btn btn-outline-success">LULUS</button>.';
+                            }elseif($lulus < 55){
+                                echo '.<button class="btn btn-outline-danger">TIDAK LULUS</button>.';
+                            }else{
+                                echo '.<button class="btn btn-outline-secondary">BELUM ADA PENILAIAN</button>.';
+                            }
+                        ?>
+                    </td>
                 </tr>
             </tbody>
         </table>
