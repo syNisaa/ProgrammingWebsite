@@ -9,7 +9,7 @@
 </head>
 
 <style>
-    .container{
+    .container {
         font-family: 'Times New Roman', Times, serif;
     }
 </style>
@@ -18,7 +18,8 @@
 
     <div class="container mt-5">
 
-        <h5 class="text-center">Daftar Nilai Mahasiswa 2022 </h5><hr>
+        <h5 class="text-center">Daftar Nilai Mahasiswa 2022 </h5>
+        <hr>
 
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -85,23 +86,45 @@
         $puas = $uas * 35 / 100;
         $ptugas = $tugas * 35 / 100;
 
-        $presentase = $puts + $puas +$ptugas;
+        @$presentase = $puts + $puas + $ptugas;
 
-        if($presentase <= 35){
+        if ($presentase <= 35) {
             $presentase = "E";
-        }elseif($presentase <= 55){
+        } elseif ($presentase <= 55) {
             $presentase = "D";
-        }elseif($presentase <= 69){
+        } elseif ($presentase <= 69) {
             $presentase = "C";
-        }elseif($presentase <= 84){
+        } elseif ($presentase <= 84) {
             $presentase = "B";
-        }elseif($presentase <= 100){
+        } elseif ($presentase <= 100) {
             $presentase = "A";
-        }else{
+        } else {
             $presentase = "I";
         }
-    
-        $lulus = $puts + $puas +$ptugas;
+
+        @$lulus = $puts + $puas + $ptugas;
+
+        switch ($presentase) {
+            case "A":
+                $predikat = "Sangat memuaskan!";
+                break;
+            case "B":
+                $predikat = "Memuaskan!";
+                break;
+            case "C":
+                $predikat = "Cukup!";
+                break;
+            case "D":
+                $predikat = "Kurang!";
+                break;
+            case "E":
+                $predikat = "Sangat Kurang!";
+                break;
+
+            default:
+                $predikat = "Tidak Ada";
+                break;
+        }
 
         ?>
 
@@ -114,28 +137,28 @@
                     <th scope="col">Nilai UAS</th>
                     <th scope="col">Nilai UTS</th>
                     <th scope="col">Nilai Tugas</th>
-                    <th scope="col">Grade</th>
+                    <th scope="col">Grade / Predikat</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td><?php echo $nama ?></td>
-                    <td><?php echo $matkul ?></td>
-                    <td><?php echo $uas ?></td>
-                    <td><?php echo $uts ?></td>
-                    <td><?php echo $tugas ?></td>
-                    <td><?php echo $presentase ?></td>
+                    <td><?php echo @$nama ?></td>
+                    <td><?php echo @$matkul ?></td>
+                    <td><?php echo @$uas ?></td>
+                    <td><?php echo @$uts ?></td>
+                    <td><?php echo @$tugas ?></td>
+                    <td><?php echo @$presentase; echo " <br> $predikat";?></td>
                     <td>
-                        <?php 
-                            if ($lulus >= 55){
-                                echo '.<button class="btn btn-outline-success">LULUS</button>.';
-                            }elseif($lulus < 55){
-                                echo '.<button class="btn btn-outline-danger">TIDAK LULUS</button>.';
-                            }else{
-                                echo '.<button class="btn btn-outline-secondary">BELUM ADA PENILAIAN</button>.';
-                            }
+                        <?php
+                        if ($lulus >= 55) {
+                            echo '.<button class="btn btn-outline-success">LULUS</button>.';
+                        } elseif ($lulus < 55) {
+                            echo '.<button class="btn btn-outline-danger">TIDAK LULUS</button>.';
+                        } else {
+                            echo '.<button class="btn btn-outline-secondary">BELUM ADA PENILAIAN</button>.';
+                        }
                         ?>
                     </td>
                 </tr>
