@@ -12,6 +12,7 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
+            background-color: #d9edff;
         }
     </style>
     <title>Praktikum 2 - Belanja </title>
@@ -41,11 +42,11 @@
                             <label for="produk_0" class="custom-control-label">TV</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input name="produk" id="produk_1" type="radio" class="custom-control-input" value="kulkas ">
+                            <input name="produk" id="produk_1" type="radio" class="custom-control-input" value="kulkas">
                             <label for="produk_1" class="custom-control-label">Kulkas</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input name="produk" id="produk_2" type="radio" class="custom-control-input" value="Mesin Cuci ">
+                            <input name="produk" id="produk_2" type="radio" class="custom-control-input" value="mesincuci">
                             <label for="produk_2" class="custom-control-label">Mesin Cuci</label>
                         </div>
                     </div>
@@ -98,16 +99,16 @@
 
         if ($produk == "TV") {
             $total = $jumlah * 4200000;
-        } else if ($produk = "Kulkas") {
+        } else if ($produk == "kulkas") {
             $total = $jumlah * 3100000;
-        } else {
+        } else if($produk == "mesincuci"){
             $total = $jumlah * 3800000;
         }
         ?>
 
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; background-color:#ccdeed;">
             <div class="card-body">
-                <h5 class="card-title"><?php echo $produk ?></h5>
+                <h5 class="card-title"><?php echo $produk ?></h5><hr>
                 <p class="card-text">Nama Customer : <?php echo $customer ?></p>
                 <p class="card-text">Jumlah Quantity : <?php echo $jumlah ?></p>
                 <b>
