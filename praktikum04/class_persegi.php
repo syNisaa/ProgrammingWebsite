@@ -12,5 +12,5 @@
         function keliling(){
             return $this->sisi  * 4;
         }
+
     }
-?>
