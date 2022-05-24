@@ -1,0 +1,12 @@
+CRITICAL - 2022-05-23 19:20:17 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\praktikumCI\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\praktikumCI\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\praktikumCI\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\praktikumCI\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
+CRITICAL - 2022-05-23 19:25:39 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\praktikumCI\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\praktikumCI\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\praktikumCI\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 C:\xampp\htdocs\praktikumCI\public\index.php(28): require('C:\\xampp\\htdocs...')
+#4 {main}
